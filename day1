@@ -14,3 +14,37 @@ int subtractProductAndSum(int n){
     return f;
 
 }
+
+problem 2:
+
+
+
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* selfDividingNumbers(int left, int right, int* returnSize)
+{
+    int i,rem,flag=0,q=0;
+    *returnSize=right-left;
+    int* arr=malloc(sizeof(int)*(right-left));
+    for(i=left;i<=right;i++)
+    {
+        int k=i;
+        while(i!=0)
+        {
+            rem=i%10;
+            if( rem==0 || k%rem!=0)
+            {
+                flag=1;
+            }
+            i/=10;
+        }
+        if(flag==0)
+        {
+            arr[q]=i;
+            q++;
+        }
+    }
+    return arr;
+}
+
