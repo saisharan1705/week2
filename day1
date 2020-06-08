@@ -19,32 +19,39 @@ problem 2:
 
 
 
-/**
- * Note: The returned array must be malloced, assume caller calls free().
- */
 int* selfDividingNumbers(int left, int right, int* returnSize)
+
 {
-    int i,rem,flag=0,q=0;
-    *returnSize=right-left;
-    int* arr=malloc(sizeof(int)*(right-left));
+
+    int i,rem,flag,q=0,a[right],k;
     for(i=left;i<=right;i++)
     {
-        int k=i;
-        while(i!=0)
+    flag=0;
+         k=i;
+        while(k!=0)
         {
-            rem=i%10;
-            if( rem==0 || k%rem!=0)
+            rem=k%10;
+            if( rem==0 || i%rem!=0)
             {
-                flag=1;
+                flag++;
             }
-            i/=10;
+            k/=10;
         }
+
         if(flag==0)
         {
-            arr[q]=i;
+            a[q]=i;
             q++;
         }
     }
+     *returnSize=q;
+    int* arr=malloc(sizeof(int)*q);
+    for(i=0;i<q;i++)
+     {
+        arr[i]=a[i];
+    }
     return arr;
+
 }
+
 
