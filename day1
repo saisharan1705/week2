@@ -55,3 +55,58 @@ int* selfDividingNumbers(int left, int right, int* returnSize)
 }
 
 
+problem 3:
+
+
+
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* spiralOrder(int** matrix, int matrixSize, int* matrixColSize, int* returnSize)
+{
+    int d=0,i,top=0,down=matrixSize-1,left=0,right=*matrixColSize-1,q=0;
+    *returnSize=matrixSize*(*matrixColSize);
+    int* a=(int *)malloc(sizeof(int)*(*returnSize));
+    while(top<=down && left<=right)
+    {
+        if(d==0)
+        {
+            for(i=left;i<=right;i++)
+            {
+                a[q]=matrix[top][i];
+                q++;
+            }
+            top++;
+        }
+        else if(d==1)
+        {
+            for(i=top;i<=down;i++)
+            {
+                a[q]=matrix[i][right];
+                q++;
+            }
+            right-=1;
+        }
+        else if(d==2)
+        {
+            for(i=right;i>=left;i--)
+            {
+                a[q]=matrix[down][i];
+                q++;
+            }
+            down-=1;
+        }
+        else if(d==3)
+        {
+            for(i=down;i>=top;i--)
+            {
+                a[q]=matrix[i][left];
+                q++;
+            }
+            left++;
+        }
+        d=(d+1)%4;
+    }
+    return a;
+}
+
