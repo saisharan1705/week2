@@ -109,4 +109,42 @@ int* spiralOrder(int** matrix, int matrixSize, int* matrixColSize, int* returnSi
     }
     return a;
 }
+Day 2:
 
+problem3:
+
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	int i,j,n;
+	scanf("%d",&n);
+	char s[n][14];
+	for(i=0;i<n;i++)
+	{
+		scanf("%s",&s[i]);
+	}
+	for(i=0;i<n;i++)
+	{
+	int k=strlen(s[i]),q=0;
+	char b[k],m;
+	for(j=k-1;j>=0;j--)
+	{
+		b[q]=s[i][j];
+		if(j== (k/2))
+		{
+			m=b[q];
+		}
+		q++;
+	}
+	for(j=i+1;j<n;j++)
+	{
+	if(strcmp(b,s[j]) == 0)
+		{
+			printf("%d ",k);
+			printf("%c",m);
+			break;
+		}
+	}}
+	
+}
