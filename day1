@@ -150,6 +150,10 @@ int main()
 }
 
 
+DAY 2: 
+problem :1
+//address sanitiser isssue while performing in leetcode but tried in online compiler with as many as inputs got corrrect ans. 
+
 #include<stdio.h>
 #include<string.h>
 int main()
@@ -186,5 +190,8 @@ int main()
                     i++;j++;
                 }
             }
-    printf("%s",add);
+    for(i=0;i<s2;i++)
+    {
+        printf("%c",add[i]);
+    }
 }
