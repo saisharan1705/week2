@@ -148,3 +148,43 @@ int main()
 	}}
 	
 }
+
+
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    int i,j,k,s1,s2,c=0;
+    char address[20];
+    scanf("%s",address);
+    s1=strlen(address);
+    for(i=0;i<s1;i++)
+    {
+        if(address[i]=='.')
+        {
+            c++;
+        }
+    }
+    s2=s1+(2*c);
+    char add[s2];
+                     i=0;
+                     j=0;
+    while(j<s1)
+        {
+            if(address[j]=='.')
+                {
+                    add[i]='[';
+                    add[i+1]='.';
+                    add[i+2]=']';
+                    i+=3;
+                    j++;
+                    
+                }
+                else
+                {
+                    add[i]=address[j];
+                    i++;j++;
+                }
+            }
+    printf("%s",add);
+}
