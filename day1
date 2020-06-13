@@ -195,3 +195,27 @@ int main()
         printf("%c",add[i]);
     }
 }
+
+Day 7:
+
+problem 1:
+
+
+int minMoves(int* nums, int numsSize)
+{
+    int i,j,temp;
+    int k=nums[0];
+    for(i=1;i<numsSize;i++)
+    {
+        if(nums[i]<k)
+        {
+            k=nums[i];
+        }
+    }
+   int sum=0;
+    for(i=0;i<numsSize;i++)
+    {
+        sum+=nums[i]-k;
+    }
+    return sum;
+}
