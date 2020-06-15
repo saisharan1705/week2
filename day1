@@ -159,6 +159,8 @@ int main()
 
 problem:2
 
+//address sanitiser isssue while performing in leetcode but tried in online compiler with as many as inputs got corrrect ans. 
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
