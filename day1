@@ -367,6 +367,38 @@ bool isPowerOfTwo(int n)
     else{return false;}
 }
 
+problem: 6
+
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+int main() 
+{
+    char s[100];
+    scanf("%[^\n]",s);
+    char ch=' ';
+    strncat(s,&ch,1);
+    int i,j, l=strlen(s),q=0,p=1;
+    int k[l];
+    k[0]=0;
+    char s1[l],h[l+1];
+    for(i=0;i<l;i++)
+    {
+        if(s[i]==' ')
+        {
+            k[p]=i;
+            for(j=i-1;j>=k[p-1];j--)
+            {
+                s1[q]=s[j];
+                q++;
+            }
+            s1[q++]=' ';
+            p++;
+        }
+    }
+    printf("%s", s1);
+}
+
 problem 7:
 
 
