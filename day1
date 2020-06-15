@@ -235,6 +235,35 @@ int main()
 	
 }
 
+DAY 4:
+#include<stdio.h>
+#include<string.h>
+void search(char* pat,char* txt);
+void search(char* pat, char* txt) 
+{ 
+    int M = strlen(pat); 
+    int N = strlen(txt);
+    for (int i = 0; i <= N - M; i++) { 
+        int j;
+        for (j = 0; j < M; j++) 
+            if (txt[i + j] != pat[j]) 
+                break; 
+  
+        if (j == M) 
+            printf(" %d ", i); 
+    } 
+} 
+int main() 
+{ 
+    char txt[100];
+    char pat[10];
+    scanf("%s",&txt);
+    scanf("%s,pat);
+    search(pat, txt); 
+    return 0; 
+} 
+
+
 Day 7:
 
 problem 1:
@@ -294,6 +323,28 @@ int* plusOne(int* digits, int digitsSize, int* returnSize)
     return arr1;
 }
 
+problem 4:
+
+
+
+int titleToNumber(char * s){
+    int i,j;
+    int s1,q=0,sum=0;
+    s1=strlen(s);
+    char d[s1];
+    for(i=s1-1;i>=0;i--)
+    {
+        d[q]=s[i];
+        q++;
+    }
+    for(i=0;i<q;i++)
+    {
+        int a;
+        a=d[i];
+        sum=sum+(a-64)*pow(26,i);
+    }
+    return sum;
+}
 
 problem 5:
 
@@ -351,25 +402,3 @@ char * reverseVowels(char * s)
     }
 }
 
-problem 4:
-
-
-
-int titleToNumber(char * s){
-    int i,j;
-    int s1,q=0,sum=0;
-    s1=strlen(s);
-    char d[s1];
-    for(i=s1-1;i>=0;i--)
-    {
-        d[q]=s[i];
-        q++;
-    }
-    for(i=0;i<q;i++)
-    {
-        int a;
-        a=d[i];
-        sum=sum+(a-64)*pow(26,i);
-    }
-    return sum;
-}
