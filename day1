@@ -369,6 +369,7 @@ bool isPowerOfTwo(int n)
 
 problem: 6
 
+/address sanitiser isssue while performing in leetcode but tried in online compiler with as many as inputs got corrrect ans
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
