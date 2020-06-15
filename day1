@@ -292,16 +292,16 @@ problem 3:
 
 
 
-/**
- * Note: The returned array must be malloced, assume caller calls free().
- */
+
 int* plusOne(int* digits, int digitsSize, int* returnSize)
 {
-    *returnSize=digitsSize;
-    int i;
-    int* arr=(int*)malloc(sizeof(int)*(digitsSize+1));
+    
+    int i,j;
+    int arr[digitsSize+1];
     int* arr1=(int*)malloc(sizeof(int)*(digitsSize+1));
-    int sum=0;
+    long long int sum=0;
+    if(digitsSize<=18)
+    {
     for(i=0;i<digitsSize;i++)
     {
         sum=sum*10+digits[i];
@@ -320,8 +320,46 @@ int* plusOne(int* digits, int digitsSize, int* returnSize)
         arr1[p]=arr[i];
         p++;
     }
+    *returnSize=p;
     return arr1;
+    } 
+    else if(digitsSize>18)
+    {
+    if(digits[digitsSize-1]!=9)
+    {
+        digits[digitsSize-1]=digits[digitsSize-1]+1;
+        *returnSize=digitsSize;
+        return digits;
+    }
+    for(i=1;i<=digitsSize;i++)
+    {
+     if(digits[digitsSize-i]>=9 && i!=digitsSize)
+    {
+         digits[digitsSize-(i+1)]=digits[digitsSize-(i+1)]+1;
+         digits[digitsSize-i]=0;
+         if(digits[digitsSize-(i+1)]<10)
+         {
+             break;
+         }
+    } 
+     if(i==digitsSize && digits[0]>=9)
+     {
+         arr1[0]=1;
+         for(j=1;j<=digitsSize;j++)
+         {
+             arr1[j]=0;
+         }
+         *returnSize=digitsSize+1;
+         return arr1;
+         break;
+     }
+    }
+    *returnSize=digitsSize;
+    return digits;
+    }
+    return digits;
 }
+   
 
 problem 4:
 
